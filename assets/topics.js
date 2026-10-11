@@ -15,10 +15,11 @@ window.SITE_CATS = [
 (function () {
   // [folderNumber, folder, title, category, icon, related folder-numbers]
   const T = [
-    ['01', '01-CSharp', 'C#', 'lang', 'bi-code-slash', ['02', '56', '09']],
+    ['01', '01-CSharp', 'C#', 'lang', 'bi-code-slash', ['02', '56', '57', '09']],
     ['02', '02-DotNet-AspNetCore', '.NET / ASP.NET Core', 'lang', 'bi-hdd-network', ['01', '03', '56']],
     ['03', '03-REST-APIs', 'REST APIs', 'lang', 'bi-arrow-left-right', ['02', '38', '41']],
     ['56', '56-LINQ-EFCore', 'LINQ & EF Core', 'lang', 'bi-table', ['01', '04', '02']],
+    ['57', '57-Multithreading-Concurrency', 'Multithreading & Concurrency', 'lang', 'bi-cpu', ['01', '02', '16']],
     ['04', '04-SQL-Server', 'SQL Server', 'data', 'bi-server', ['05', '56', '29']],
     ['05', '05-PostgreSQL', 'PostgreSQL', 'data', 'bi-database-gear', ['04', '06', '29']],
     ['06', '06-MongoDB', 'MongoDB', 'data', 'bi-file-earmark-code', ['05', '08', '07']],
@@ -71,6 +72,6 @@ window.SITE_CATS = [
 
 
   // Slugs with authored question files. Update as topics are written.
-  window.SITE_READY = ['01-csharp','02-dotnet-aspnetcore','03-rest-apis','04-sql-server','05-postgresql','06-mongodb','07-redis','08-dynamodb','09-oop','10-solid','11-design-patterns','12-data-structures','13-algorithms','14-system-design','15-low-level-design','16-distributed-systems','17-microservices','18-event-driven-architecture','19-kafka','20-rabbitmq','21-aws','22-azure','23-kubernetes','24-docker','25-devops','30-architecture-patterns','36-saga'];
-  window.SITE_UPDATED = '2026-10-11.2';
+  window.SITE_READY = ['01-csharp','02-dotnet-aspnetcore','03-rest-apis','04-sql-server','05-postgresql','06-mongodb','07-redis','08-dynamodb','09-oop','10-solid','11-design-patterns','12-data-structures','13-algorithms','14-system-design','15-low-level-design','16-distributed-systems','17-microservices','18-event-driven-architecture','19-kafka','20-rabbitmq','21-aws','22-azure','23-kubernetes','24-docker','25-devops','30-architecture-patterns','31-domain-driven-design','32-clean-architecture','33-hexagonal-architecture','36-saga','56-linq-efcore','57-multithreading-concurrency'];
+  window.SITE_UPDATED = '2026-10-11.7';
 })();
