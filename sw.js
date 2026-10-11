@@ -1,6 +1,6 @@
 /* Offline support. App shell is precached; CDN libraries and topic data are cached on first use
    (stale-while-revalidate), so anything you have opened once works offline afterwards. */
-const VERSION = 'iq-v4';
+const VERSION = 'iq-v5';
 const SHELL = ['./', 'index.html', 'assets/site.css', 'assets/topics.js', 'assets/checklist.js', 'assets/app.js', 'assets/icon.svg', 'manifest.webmanifest'];
 
 self.addEventListener('install', e => {

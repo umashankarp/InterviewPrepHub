@@ -181,6 +181,7 @@ const state = { slug: null, qid: null, filters: { level: '', status: '', tag: ''
 function parseHash() { return location.hash.replace(/^#\/?/, '').split('/').filter(Boolean).map(decodeURIComponent); }
 async function route() {
   const p = parseHash(); const view = $('#view');
+  clearInterval(tick); // stop a mock-interview timer left running by navigating away mid-card
   state.slug = null; state.qid = null; state.cursor = -1;
   window.scrollTo(0, 0);
   if (!p.length) { document.title = 'Interview Prep Hub'; renderSidebar(); return renderHome(view); }
@@ -259,6 +260,7 @@ async function renderTopic(view, t) {
   }
   const d = t.loaded, qs = d.questions, rv = topicRevCount(t.slug);
   const tags = [...new Set(qs.flatMap(q => q.tags || []))].sort();
+  if (state.filters.tag && !tags.includes(state.filters.tag)) state.filters.tag = ''; // a tag picked on another topic would hide every question here
   view.innerHTML = crumbs + `
   <div class="topic-head mb-3"><div class="d-flex flex-wrap justify-content-between align-items-start gap-2">
     <div><h1 class="h2 mb-1"><i class="bi ${t.icon}" style="color:${cat.color}"></i> ${esc(t.title)} <small class="text-body-secondary fs-6">#${t.n}</small></h1><span class="badge badge-cat">${esc(cat.name)}</span></div>
@@ -266,7 +268,7 @@ async function renderTopic(view, t) {
       <button class="btn btn-outline-secondary btn-sm" data-act="expand"><i class="bi bi-arrows-expand"></i> Expand all</button>
       <button class="btn btn-outline-secondary btn-sm" data-act="collapse"><i class="bi bi-arrows-collapse"></i> Collapse all</button>
       <button class="btn btn-outline-secondary btn-sm" data-act="print"><i class="bi bi-printer"></i> Print</button>
-      <a class="btn btn-outline-secondary btn-sm" href="#cheat"><i class="bi bi-card-checklist"></i> Cheat sheet</a></div></div>
+      <a class="btn btn-outline-secondary btn-sm" href="#cheat" data-jump="cheat"><i class="bi bi-card-checklist"></i> Cheat sheet</a></div></div>
     <div class="mt-3"><div class="d-flex justify-content-between small mb-1"><span>Topic progress</span><span id="tpText">${rv} / ${qs.length} reviewed</span></div>
       <div class="progress" role="progressbar" aria-label="Topic progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${pct(rv, qs.length)}" id="tpBar"><div class="progress-bar" style="width:${pct(rv, qs.length)}%"></div></div></div></div>
   <div class="row g-2 mb-3 no-print" role="search" aria-label="Filter questions">
@@ -525,6 +527,8 @@ function palMove(d) { const els = $$('.pal-item'); if (!els.length) return; els[
 
 /* ---------- events ---------- */
 function bind() {
+  // in-page anchor: following #main would replace the #/route hash and land on "Page not found"
+  $('.skip-link').addEventListener('click', e => { e.preventDefault(); $('#main').focus(); });
   $('#themeBtn').onclick = () => applyTheme(curTheme() === 'dark' ? 'light' : 'dark', true);
   $('#sbToggle').onclick = () => { S.side = !S.side; save(); document.body.classList.toggle('side-collapsed', S.side); $('#sbToggle').setAttribute('aria-pressed', S.side); };
   const ns = $('#navSearch'); ns.addEventListener('focus', () => { ns.blur(); openPalette(); });
