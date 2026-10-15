@@ -3,4 +3,4 @@
 :HC["/",""]
 :HL["/vendor/hljs/github.min.css","style"]
 :HL["/vendor/hljs/github-dark.min.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"slug","param":{"type":"d","key":"32-clean-architecture","siblings":["bookmarks","checklist","flash"]},"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}},"staleTime":300,"buildId":"rkXPHTnyRjPPEQyh7HPqp"}
+0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"slug","param":{"type":"d","key":"32-clean-architecture","siblings":["bookmarks","checklist","flash"]},"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}},"staleTime":300,"buildId":"vi4Pj6Kw4PKxhO7SIvqmk"}
