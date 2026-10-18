@@ -1,6 +1,6 @@
 :HL["/_next/static/chunks/0_m7_2v32ppp0.css","style"]
-:HL["/_next/static/chunks/0d10h_qnnpajr.css","style"]
+:HL["/_next/static/chunks/17gcdrrwt8rc2.css","style"]
 :HC["/",""]
 :HL["/vendor/hljs/github.min.css","style"]
 :HL["/vendor/hljs/github-dark.min.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"flash","param":null,"prefetchHints":4192,"slots":{"children":{"name":"which","param":{"type":"d","key":"17-microservices","siblings":[]},"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}},"staleTime":300,"buildId":"vi4Pj6Kw4PKxhO7SIvqmk"}
+0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"flash","param":null,"prefetchHints":4192,"slots":{"children":{"name":"which","param":{"type":"d","key":"17-microservices","siblings":[]},"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}},"staleTime":300,"buildId":"Iux3hMrqgGH2DA9u-S60d"}

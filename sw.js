@@ -3,7 +3,7 @@
    Pages use network-first: a stale cached page could reference build chunks that no longer exist after a
    deploy. Static assets are content-hashed (and topic data is ?v= versioned), so they use stale-while-revalidate.
    Bump VERSION when this file's behaviour changes. */
-const VERSION = 'iq-next-v2';
+const VERSION = 'iq-next-v3';
 const SCOPE = self.registration.scope;
 const SHELL = ['', 'manifest.webmanifest', 'icon.svg'].map(p => new URL(p, SCOPE).href);
 
@@ -17,7 +17,8 @@ self.addEventListener('activate', e => {
 
 self.addEventListener('fetch', e => {
   const req = e.request;
-  if (req.method !== 'GET' || !req.url.startsWith('http')) return;
+  // only this site's own files are cached; cross-origin requests (feedback, anything injected) go straight to the network
+  if (req.method !== 'GET' || new URL(req.url).origin !== self.location.origin) return;
 
   if (req.mode === 'navigate') {
     e.respondWith(caches.open(VERSION).then(async cache => {
